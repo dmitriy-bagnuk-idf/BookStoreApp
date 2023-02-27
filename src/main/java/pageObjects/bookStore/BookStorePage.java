@@ -34,10 +34,12 @@ public class BookStorePage extends BasePage {
     }
 
     private Integer getCountOfBooks() {
+        log.debug("Get count of books");
         return findElements(bookTitles).size();
     }
 
     public List<String> getListOfBookTitles() {
+        log.debug("Get list of book titles");
         List<String> books = new ArrayList<>();
         for (int i = 0; i < getCountOfBooks(); i++) {
             books.add(i, findElement(bookTitle(i + 1)).getText());
