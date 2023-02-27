@@ -8,7 +8,7 @@
 
     <test name="open">
         <classes>
-            <class name="TestTest"/>
+            <class name="LoginTest"/>
         </classes>
     </test>
 </suite>

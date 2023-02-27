@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 
 import static driver.DriverManager.getDriver;
 import static propertyHelper.PropertyReader.getProperties;
+
 @Log4j
 public abstract class BasePage {
     protected WebDriverWait wait;
@@ -152,25 +153,25 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    protected void select(By locator, Integer index){
+    protected void select(By locator, Integer index) {
         log.debug("Select by locator =>" + locator + " with index " + index);
         Select select = new Select(findElement(locator));
         select.selectByIndex(index);
     }
 
-    protected void select(By locator, String value){
+    protected void select(By locator, String value) {
         log.debug("Select by value =>" + locator + " with value " + value);
         Select select = new Select(findElement(locator));
         select.selectByValue(value);
     }
 
-    protected void select(WebElement webElement, Integer index){
+    protected void select(WebElement webElement, Integer index) {
         log.debug("Select by value =>" + webElement + " with value " + index);
         Select select = new Select(webElement);
         select.selectByIndex(index);
     }
 
-    protected void select(WebElement webElement, String value){
+    protected void select(WebElement webElement, String value) {
         log.debug("Select by value =>" + webElement + " with value " + value);
         Select select = new Select(webElement);
         select.selectByValue(value);
