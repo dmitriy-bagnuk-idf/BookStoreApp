@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Book Store test">
+<suite name="Book Store tests with Selenium" thread-count="1" parallel="tests">
     <listeners>
         <listener class-name="testNgUtils.InvokedMethodListener"/>
     </listeners>
 
-    <test name="open">
+    <test name="User login test" enabled="true">
         <classes>
             <class name="LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Compare lists of book titles test" enabled="true">
+        <classes>
+            <class name="TitlesTest"/>
         </classes>
     </test>
 </suite>

@@ -1,28 +1,31 @@
+import pageObjects.bookStore.LoginPage;
+import restAPI.BookStoreAPI;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.baseObjects.BaseTest;
 import pageObjects.bookStore.BookStorePage;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class LoginTest extends BaseTest {
     @BeforeTest
-    public void preconditions () {
+    public void preconditions() {
         get(BookStorePage.class)
                 .open();
     }
-    @Test(enabled = false)
-    public void openTest() {
+
+    @Test(description = "User login test",
+            priority = 1,
+            enabled = true)
+    public void userLoggedInTest() {
         get(BookStorePage.class)
                 .verifyBookStorePageIsOpen()
                 .clickLoginBtn();
-    }
-
-    @Test
-    public void nameTest() {
-        System.out.println(Arrays.toString(get(BookStorePage.class).getListOfBookTitles().toArray()));
+        String userName = get(BookStoreAPI.class).newUserRegistration();
+        get(LoginPage.class)
+                .verifyLoginPageIsOpen()
+                .enterUserName(userName)
+                .enterPassword(properties.getProperty("password"))
+                .clickLoginBtn()
+                .verifyUserDisplayName(userName)
+                .verifyUserLoggedIn();
     }
 }
