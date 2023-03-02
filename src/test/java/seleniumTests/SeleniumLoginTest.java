@@ -1,14 +1,16 @@
-import pageObjects.bookStore.LoginPage;
+package seleniumTests;
+
+import pageObjects.bookStoreSelenium.SeleniumLoginPage;
 import restAPI.BookStoreAPI;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.baseObjects.BaseTest;
-import pageObjects.bookStore.BookStorePage;
+import pageObjects.bookStoreSelenium.SeleniumBookStorePage;
 
-public class LoginTest extends BaseTest {
+public class SeleniumLoginTest extends BaseTest {
     @BeforeTest
     public void preconditions() {
-        get(BookStorePage.class)
+        get(SeleniumBookStorePage.class)
                 .open();
     }
 
@@ -16,11 +18,11 @@ public class LoginTest extends BaseTest {
             priority = 1,
             enabled = true)
     public void userLoggedInTest() {
-        get(BookStorePage.class)
+        get(SeleniumBookStorePage.class)
                 .verifyBookStorePageIsOpen()
                 .clickLoginBtn();
         String userName = get(BookStoreAPI.class).newUserRegistration();
-        get(LoginPage.class)
+        get(SeleniumLoginPage.class)
                 .verifyLoginPageIsOpen()
                 .enterUserName(userName)
                 .enterPassword(properties.getProperty("password"))

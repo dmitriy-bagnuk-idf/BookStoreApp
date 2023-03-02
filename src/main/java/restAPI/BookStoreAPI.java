@@ -8,12 +8,15 @@ import restAPI.entity.response.RegisterResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.Random;
 
 import static io.restassured.RestAssured.given;
+import static propertyHelper.PropertyReader.getProperties;
 
 @Log4j
-public class BookStoreAPI extends BasePage {
+public class BookStoreAPI {
+    Properties properties = getProperties();
     Random random = new Random();
     List<String> bookTitlesFromAPI = new ArrayList<>();
     private final String apiURI = properties.getProperty("apiURI");

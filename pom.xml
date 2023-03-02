@@ -24,6 +24,7 @@
     <gson.version>2.10.1</gson.version>
     <rest-assured.version>5.3.0</rest-assured.version>
     <json.validator.version>5.3.0</json.validator.version>
+    <selenide.version>6.10.1</selenide.version>
     <suiteXml/>
   </properties>
 
@@ -104,6 +105,13 @@
       <groupId>io.rest-assured</groupId>
       <artifactId>json-schema-validator</artifactId>
       <version>${json.validator.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.codeborne/selenide -->
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide</artifactId>
+      <version>${selenide.version}</version>
     </dependency>
 
   </dependencies>

@@ -1,4 +1,4 @@
-package pageObjects.bookStore;
+package pageObjects.bookStoreSelenium;
 
 import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Log4j
-public class BookStorePage extends BasePage {
+public class SeleniumBookStorePage extends BasePage {
     private final By loginBtn = By.id("login");
     private final By bookTitles = By.xpath("//span/a");
 
@@ -21,13 +21,13 @@ public class BookStorePage extends BasePage {
         load();
     }
 
-    public BookStorePage verifyBookStorePageIsOpen() {
+    public SeleniumBookStorePage verifyBookStorePageIsOpen() {
         log.debug("Book store page is open");
         Assert.assertEquals(properties.getProperty("url"), getPageUrl());
         return this;
     }
 
-    public BookStorePage clickLoginBtn() {
+    public SeleniumBookStorePage clickLoginBtn() {
         log.debug("Click login btn");
         click(loginBtn);
         return this;
