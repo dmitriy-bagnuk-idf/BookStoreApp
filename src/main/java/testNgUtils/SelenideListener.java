@@ -17,5 +17,6 @@ public class SelenideListener implements ITestListener {
         new PropertyReader(propertyName);
         Configuration.baseUrl = getProperties().getProperty("url");
         Configuration.browser = getProperties().getProperty("browser");
+        Configuration.headless = true;
     }
 }

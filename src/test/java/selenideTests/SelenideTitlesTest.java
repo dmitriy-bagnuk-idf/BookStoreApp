@@ -7,8 +7,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pageObjects.baseObjects.SelenideBaseTest;
 import pageObjects.bookStoreSelenide.SelenideBookStorePage;
-import pageObjects.bookStoreSelenide.SelenideLoginPage;
-import pageObjects.bookStoreSelenium.SeleniumBookStorePage;
 import restAPI.BookStoreAPI;
 
 import static com.codeborne.selenide.Configuration.baseUrl;

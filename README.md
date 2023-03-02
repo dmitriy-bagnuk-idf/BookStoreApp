@@ -12,6 +12,8 @@
 
 ### Run Selenide tests: "mvn clean test -DsuiteXml=bookStoreSelenide -Dconfig=bookstore"
 
+### Generate Allure report: "allure generate target/allure-results -c"
+
 **************************
 
 #### Tests: "src/test/java/"

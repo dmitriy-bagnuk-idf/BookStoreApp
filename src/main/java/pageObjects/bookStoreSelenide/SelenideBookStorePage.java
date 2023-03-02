@@ -7,8 +7,8 @@ import lombok.extern.log4j.Log4j;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -17,10 +17,6 @@ import static com.codeborne.selenide.Selenide.$$;
 public class SelenideBookStorePage {
     private final SelenideElement loginBtn = $(By.id("login"));
     private final ElementsCollection bookTitles = $$(By.xpath("//span/a"));
-
-    private SelenideElement bookTitle(int count) {
-        return $(By.xpath("(//span/a)[" + count + "]"));
-    }
 
     public SelenideBookStorePage verifyBookStorePageIsOpen() {
         log.debug("Book store page is open");
@@ -35,13 +31,10 @@ public class SelenideBookStorePage {
     }
 
     public List<String> getListOfBookTitles() {
-        log.debug("Get count of books");
-        int countOfBooks = bookTitles.size();
         log.debug("Get list of book titles");
-        List<String> titles = new ArrayList<>();
-        for (int i = 0; i < countOfBooks; i++) {
-            titles.add(i, bookTitle(i + 1).getText());
-        }
-        return titles;
+        return bookTitles
+                .stream()
+                .map(SelenideElement -> SelenideElement.getText())
+                .collect(Collectors.toList());
     }
 }
